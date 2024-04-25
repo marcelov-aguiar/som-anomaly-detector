@@ -129,7 +129,7 @@ class KohonenSom(object):
         for i, shape_ind in enumerate(self.shape):
             slc = [slice(None)] * len(bmu_distance.shape)
             slc[i] = slice(shape_ind, 2 * shape_ind)
-            bmu_distance = bmu_distance[slc]
+            bmu_distance = bmu_distance[tuple(slc)]
 
         # Multiply by sigma to emulate a decreasing radius effect
         bmu_distance = sigma * bmu_distance
